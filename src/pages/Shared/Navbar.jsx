@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import { ThemeContext } from "../../provider/ThemeToggle";
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const nav = (
     <>
       <li className="font-bold"><NavLink to="/">Home</NavLink></li>
@@ -27,13 +31,26 @@ const Navbar = ({ theme, toggleTheme }) => {
         <Link className="md:text-2xl ml-4" to="/">Unice Craft</Link>
       </div>
       <div className="navbar-end gap-4">
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{nav}</ul>
-      </div>
-        <Link onClick={toggleTheme} className="btn">
-          {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-        </Link>
-        <Link className="btn" to="/login">Login</Link>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{nav}</ul>
+        </div>
+        <div>
+          <Link
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Theme"
+            onClick={toggleTheme} className="btn">
+            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </Link>
+          <Tooltip id="my-tooltip" place="top" />
+
+        </div>
+        <div>
+          <Link
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Login"
+            className="btn" to="/login">Login</Link>
+          <Tooltip id="my-tooltip" place="top" />
+        </div>
       </div>
     </div>
   );

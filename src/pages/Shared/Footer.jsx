@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../provider/ThemeToggle";
 
 
-const Footer = ({theme}) => {
+const Footer = () => {
+      const { theme} = useContext(ThemeContext);
+    
     return (
         <footer className={`footer sm:footer-horizontal p-10 ${theme === 'light' ? 'bg-light' : 'bg-dark'}`}>
             <nav>
