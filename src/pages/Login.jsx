@@ -1,14 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Shared/Navbar';
+import { toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../provider/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 
 const Login = () => {
+    const { userLogIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [password, setPassword] = useState('');
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(<FaEyeSlash />);
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(<FaEye />); 
+            setType('text');
+        } else {
+            setIcon(<FaEyeSlash />); 
+            setType('password');
+        }
+    };
     const handleLoginSubmit = (e) => {
-
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(email, password);
+        userLogIn(email, password)
+            .then((result) => {
+                console.log(result.user);
+                toast.success('Login successfully!');
+                setTimeout(() => {
+                    navigate('/');
+                }, 3000);
+            })
+            .catch((error) => {
+                console.error(error);
+                
+                toast.error('Invalid email or password!');
+            });
     }
     return (
         <>
-        <Navbar></Navbar>
+            <Navbar></Navbar>
             <div className="hero bg-base-200 min-h-screen">
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form onSubmit={handleLoginSubmit} className="card-body">
@@ -17,17 +52,26 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" required />
+                            <input name='email' type="email" placeholder="Enter your email" className="input input-bordered w-full" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?
-                                </a>
-                            </label>
+                            <div className="mb-4 flex">
+                                <input
+                                    type={type}
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    autoComplete="current-password"
+                                    className="input w-full input-bordered"
+                                />
+                                <span className="absolute right-8 p-2 text-xl cursor-pointer" onClick={handleToggle}>
+                                    {icon}
+                                </span>
+                            </div>
                         </div>
                         <div className="form-control mt-6">
                             <input type="submit" value="Login " className='btn btn-primary w-full text-xl' />
@@ -36,6 +80,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </>
     );
 };

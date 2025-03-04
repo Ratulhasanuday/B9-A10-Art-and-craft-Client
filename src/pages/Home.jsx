@@ -4,15 +4,17 @@ import Footer from './Shared/Footer';
 import Banner from './Banner';
 
 const Home = () => {
-   
+
 
     return (
-        <div>
+        <div className=''>
             <Navbar />
             <div>
-                <div>
-                    <Banner></Banner>                    
-                </div>
+
+            <Banner></Banner>
+            </div>
+            <div className='container mx-auto'>
+                <h2 className='text-5xl'>This card section </h2>
             </div>
             <Footer />
         </div>

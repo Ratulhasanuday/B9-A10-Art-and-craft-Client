@@ -2,16 +2,21 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { ThemeContext } from "../../provider/ThemeToggle";
+import { AuthContext } from "../../provider/AuthProvider";
+import Profile from "./Profile";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
+  const { user } = useContext(AuthContext);
   const nav = (
     <>
       <li className="font-bold"><NavLink to="/">Home</NavLink></li>
       <li className="font-bold"><NavLink to="/allCard">All Card</NavLink></li>
       <li className="font-bold"><NavLink to="/map">Map</NavLink></li>
       <li className="font-bold"><NavLink to="/about">About</NavLink></li>
+      {user && (
+        <li className="font-bold"><NavLink to="/mylist">My List</NavLink></li>
+      )}
     </>
   );
 
@@ -36,20 +41,28 @@ const Navbar = () => {
         </div>
         <div>
           <Link
-            data-tooltip-id="my-tooltip"
+            data-tooltip-id="theme-tooltip"
             data-tooltip-content="Theme"
-            onClick={toggleTheme} className="btn">
+            onClick={toggleTheme} className="btn"
+          >
             {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
           </Link>
-          <Tooltip id="my-tooltip" place="top" />
-
+          <Tooltip id="theme-tooltip" place="right" />
         </div>
         <div>
-          <Link
-            data-tooltip-id="my-tooltip"
-            data-tooltip-content="Login"
-            className="btn" to="/login">Login</Link>
-          <Tooltip id="my-tooltip" place="top" />
+          {user ? (
+            <Profile />
+          ) : (
+            <Link
+              data-tooltip-id="login-tooltip"
+              data-tooltip-content="Login"
+              className="btn"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
+          <Tooltip id="login-tooltip" place="right" />
         </div>
       </div>
     </div>
