@@ -12,13 +12,13 @@ const Navbar = () => {
     <>
       <li className="font-bold"><NavLink to="/">Home</NavLink></li>
       <li className="font-bold"><NavLink to="/allCard">All Card</NavLink></li>
-      <li className="font-bold"><NavLink to="/map">Map</NavLink></li>
-      <li className="font-bold"><NavLink to="/about">About</NavLink></li>
+      <li className="font-bold"><NavLink to="/">Map</NavLink></li>
+      <li className="font-bold"><NavLink to="/">About</NavLink></li>
       {user && (
         <li className="font-bold"><NavLink to="/myCardList">My List</NavLink></li>
       )}
       {user && (
-        <li className="font-bold"><NavLink to="/addCard">Add Card</NavLink></li>
+        <li className="font-bold"><NavLink to="/addArtCard">Add Card</NavLink></li>
       )}
     </>
   );

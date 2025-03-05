@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp";
 import MyArtCard from "../pages/MyArtCard";
 import NotFound from "../pages/Shared/NotFound";
 import PrivateRoute from "./PrivateRoute";
+import AddArtCard from "../pages/AddArtCard";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -30,7 +31,11 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/myCardList',
-                element:<PrivateRoute><MyArtCard></MyArtCard></PrivateRoute>
+                element:<PrivateRoute><MyArtCard/></PrivateRoute>
+            },
+            {
+                path:'/addArtCard',
+                element:<PrivateRoute><AddArtCard/></PrivateRoute>
             },
             {
 
