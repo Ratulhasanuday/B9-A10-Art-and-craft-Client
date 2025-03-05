@@ -15,7 +15,10 @@ const Navbar = () => {
       <li className="font-bold"><NavLink to="/map">Map</NavLink></li>
       <li className="font-bold"><NavLink to="/about">About</NavLink></li>
       {user && (
-        <li className="font-bold"><NavLink to="/mylist">My List</NavLink></li>
+        <li className="font-bold"><NavLink to="/myCardList">My List</NavLink></li>
+      )}
+      {user && (
+        <li className="font-bold"><NavLink to="/addCard">Add Card</NavLink></li>
       )}
     </>
   );
