@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Navbar from './Shared/Navbar';
 import Footer from './Shared/Footer';
 import Banner from './Banner';
 import { Link, useLoaderData } from 'react-router-dom';
-
+import { FaStar } from 'react-icons/fa';
 const Home = () => {
     const loadedJuteCrafts = useLoaderData();
     const [juteCrafts, setJuteCrafts] = useState(loadedJuteCrafts);
-
+ 
     return (
         <div className=''>
             <Navbar />
@@ -15,8 +15,9 @@ const Home = () => {
             <div>
                 <h1 className='text-center text-3xl font-bold mt-12'>All Jute and Craft</h1>
                 <div className='grid md:grid-cols-3 grid-cols-1 gap-5 p-10'>
-                    {juteCrafts.map((juteCraft) => (
-                        <div className='flex justify-center'>
+                    {
+                    juteCrafts.map((juteCraft) => (
+                        <div key={juteCraft._id} className='flex justify-center'>
                             <div className='w-full h-96 bg-gray-200 rounded-xl shadow-xl'>
                                 <img className='w-full h-3/5 rounded-t-2xl' src={juteCraft.photo} alt="" />
                                 <div className='px-5 '>
@@ -26,12 +27,15 @@ const Home = () => {
                                         <p className='text-lg font-semibold'>Price:{juteCraft.price}$</p>
                                     </div>
 
-                                    <p className='text-lg font-semibold'>
-                                        Product Rating: {juteCraft.rating}
+                                    <p className='text-lg font-semibold flex items-center'>
+                                        Product Rating:
+                                        {[...Array(Math.round(juteCraft.rating))].map((_, index) => (
+                                            <FaStar key={index} className="text-yellow-500 ml-1" />
+                                        ))}
                                     </p>
                                     <div className='flex justify-end '>
 
-                                        <Link className='btn btn-active'>View Detail</Link>
+                                        <Link to={`/viewDetails/${juteCraft._id}`} className='btn btn-active'>View Detail</Link>
                                     </div>
                                 </div>
                             </div>

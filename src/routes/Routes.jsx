@@ -8,6 +8,7 @@ import MyArtCard from "../pages/MyArtCard";
 import NotFound from "../pages/Shared/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import AddArtCard from "../pages/AddArtCard";
+import ViewDetails from "../pages/ViewDetails";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -38,8 +39,11 @@ const routes = createBrowserRouter([
                 path:'/addArtCard',
                 element:<PrivateRoute><AddArtCard/></PrivateRoute>
             },
+           
             {
-
+                path:'/viewDetails/:id',
+                element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/juteCrafts/${params.id}`)
             },
             {
                 path: '*',
