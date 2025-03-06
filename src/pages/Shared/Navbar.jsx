@@ -46,7 +46,7 @@ const Navbar = () => {
           <Link
             data-tooltip-id="theme-tooltip"
             data-tooltip-content="Theme"
-            onClick={toggleTheme} className="btn"
+            onClick={toggleTheme} className="btn "
           >
             {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
           </Link>

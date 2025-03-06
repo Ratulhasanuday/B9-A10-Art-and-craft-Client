@@ -17,7 +17,7 @@ const AddArtCard = () => {
         const details = data.get('details');
         const customaization = data.get('customaization');
         const stockStatus = data.get('stockStatus');
-        const card = {
+        const artCraftCard = {
             name,
             photo,
             subcategory,
@@ -30,9 +30,18 @@ const AddArtCard = () => {
             customaization,
             stockStatus,
         };
-        console.log(card);
-        
-        
+        console.log(artCraftCard);
+        fetch('http://localhost:5000/juteCrafts', {
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(artCraftCard)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);         
+        })
     }
     return (
 
@@ -54,7 +63,7 @@ const AddArtCard = () => {
                             <span className="text-xl">Photo Url </span>
                         </label>
                         <br />
-                        <input className="input w-full" placeholder="Photo URL" name="photo" type="text" />
+                        <input className="input w-full" placeholder="Photo URL" name="photo" type="text" required/>
                     </div>
 
                 </div>
@@ -86,7 +95,7 @@ const AddArtCard = () => {
                             <span className="text-xl">Processing time</span>
                         </label>
                         <br />
-                        <input className="input w-full" placeholder="Item Processing Time" name="processingTime" type="text"  list="Processing-options"/>
+                        <input className="input w-full" placeholder="Item Processing Time" name="processingTime" type="text"  list="Processing-options" required/>
                         <datalist id="Processing-options" >
                             <option value="1 Day" />
                             <option value="2 Days" />
@@ -130,7 +139,7 @@ const AddArtCard = () => {
                             <span className="text-xl">Rating</span>
                         </label>
                         <br />
-                        <input className="input w-full" placeholder="Rating" name="rating" type="text" list="rating-option" />
+                        <input className="input w-full" placeholder="Rating" name="rating" type="text" list="rating-option" required/>
                         <datalist id="rating-option" >
                             <option value="1" />
                             <option value="2" />
@@ -144,7 +153,7 @@ const AddArtCard = () => {
                             <span className="text-xl">Price</span>
                         </label>
                         <br />
-                        <input className="input w-full" name="price" placeholder="Price" type="text" />
+                        <input className="input w-full" name="price" placeholder="Price" type="text" required />
                     </div>
 
                 </div>
@@ -155,14 +164,14 @@ const AddArtCard = () => {
                             <span className="text-xl">User Name</span>
                         </label>
                         <br />
-                        <input className="input w-full" placeholder="User Name" name="userName" type="text" />
+                        <input className="input w-full" placeholder="User Name" name="userName" type="text" required />
                     </div>
                     <div className="md:w-1/2">
                         <label>
                             <span className="text-xl">User Email </span>
                         </label>
                         <br />
-                        <input className="input w-full" name="userEmail" placeholder="Enter user Email" type="text" />
+                        <input className="input w-full" name="userEmail" placeholder="Enter user Email" type="text" required />
                     </div>
 
                 </div>
@@ -175,7 +184,7 @@ const AddArtCard = () => {
                             <span className="text-xl">Details </span>
                         </label>
                         <br />
-                        <input className="input w-full" name="details" placeholder="Details" type="text" />
+                        <input className="input w-full" name="details" placeholder="Details" type="text" required />
                     </div>
 
 
@@ -188,7 +197,7 @@ const AddArtCard = () => {
                         </div>
                         <div className="md:mt-6 space-y-6">
                             <div className="flex items-center gap-x-3">
-                                <input id="yes" name="customaization" type="radio" value="yes" checked className="" />
+                                <input id="yes" name="customaization" type="radio" value="yes" checked className=""  />
                                 <label htmlFor="yes" className="block text-sm font-medium text-gray-900">Yes</label>
                             </div>
                         </div>
@@ -206,19 +215,19 @@ const AddArtCard = () => {
                         </div>
                         <div className="mt-6 space-y-6">
                             <div className="flex items-center gap-x-3">
-                                <input id="inStock" name="stockStatus" type="radio" value="inStock" checked className="" />
+                                <input id="inStock" name="stockStatus" type="radio" value="In Stock" checked className="" />
                                 <label htmlFor="inStock" className="block text-sm font-medium text-gray-900">In Stock</label>
                             </div>
                         </div>
                         <div className="mt-6 space-y-6">
                             <div className="flex items-center gap-x-3">
-                                <input id="madeToOrder" name="stockStatus" type="radio" value="madeToOrder" checked className="" />
+                                <input id="madeToOrder" name="stockStatus" type="radio" value="Made To Order" checked className="" />
                                 <label htmlFor="madeToOrder" className="block text-sm font-medium text-gray-900">Made to Order</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="Add Card" className="mt-8  btn w-full  bg-[#D2B48C]" />
+                <input type="submit" value="Add Card" className="mt-8  btn w-full  bg-[#93a6ce]" />
             </form >
         </div >
     );

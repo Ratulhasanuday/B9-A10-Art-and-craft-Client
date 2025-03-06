@@ -13,10 +13,11 @@ const Banner = () => {
                 className="mySwiper animate__animated animate__bounce animate__delay-2s"
             >
                 <SwiperSlide className='text-center'>
-                    <img className='h-96 w-full' src="https://i.ibb.co/dbGdCwm/Guesthouses-1.jpg" alt="" />
+                    <img className='h-96 w-full' src="https://i.ibb.co.com/5XrZTm4n/Wooden-Furniture-Sculptures2.jpg"
+ alt="" />
                 </SwiperSlide>
                 <SwiperSlide className='text-center'>
-                    <img className='h-96 w-full' src="https://i.ibb.co/s9dH0ZY/Hotels-1.jpg" alt="" />
+                    <img className='h-96 w-full' src="https://i.ibb.co.com/9kSwJtfT/Wooden-Furniture-Sculptures1.jpg" alt="" />
                 </SwiperSlide>
                 <SwiperSlide className='text-center'>
                     <img className='h-96 w-full' src="https://i.ibb.co/ckTYFDC/Lodges-1.jpg" alt="" />
