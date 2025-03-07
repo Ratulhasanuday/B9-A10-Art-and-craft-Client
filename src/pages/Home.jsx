@@ -12,13 +12,13 @@ const Home = () => {
         <div className=''>
             <Navbar />
             <Banner></Banner>
-            <div>
-                <h1 className='text-center text-3xl font-bold mt-12'>All Jute and Craft</h1>
+            <div className='mt-28'>
+                <h1 className='text-center text-3xl font-bold '>All Jute and Craft</h1>
                 <div className='grid md:grid-cols-3 grid-cols-1 gap-5 p-10'>
                     {
                     juteCrafts.map((juteCraft) => (
                         <div key={juteCraft._id} className='flex justify-center'>
-                            <div className='w-full h-96 bg-gray-200 rounded-xl shadow-xl'>
+                            <div className='w-full h-96 rounded-xl shadow-xl'>
                                 <img className='w-full h-3/5 rounded-t-2xl' src={juteCraft.photo} alt="" />
                                 <div className='px-5 '>
                                     <h1 className='text-2xl pt-4 font-bold'>{juteCraft.name}</h1>
@@ -30,7 +30,8 @@ const Home = () => {
                                     <p className='text-lg font-semibold flex items-center'>
                                         Product Rating:
                                         {[...Array(Math.round(juteCraft.rating))].map((_, index) => (
-                                            <FaStar key={index} className="text-yellow-500 ml-1" />
+                                            
+                                            <FaStar key={index} className="text-yellow-500 ml-1"  />
                                         ))}
                                     </p>
                                     <div className='flex justify-end '>

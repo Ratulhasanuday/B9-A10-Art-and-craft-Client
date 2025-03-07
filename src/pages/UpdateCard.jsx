@@ -1,5 +1,4 @@
 
-
 const UpdateCard = () => {
     return (
         <div>

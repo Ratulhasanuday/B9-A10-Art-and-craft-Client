@@ -9,6 +9,7 @@ import NotFound from "../pages/Shared/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import AddArtCard from "../pages/AddArtCard";
 import ViewDetails from "../pages/ViewDetails";
+import UpdateCard from "../pages/UpdateCard";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -20,36 +21,42 @@ const routes = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/juteCrafts')
             },
             {
-                path:'/allCard',
-                element:<AllCard></AllCard>
+                path: '/allCard',
+                element: <AllCard></AllCard>,
+                loader: () => fetch('http://localhost:5000/juteCrafts')
+
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/signup',
-                element:<SignUp></SignUp>
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
-                path:'/myCardList',
-                element:<PrivateRoute><MyArtCard/></PrivateRoute>
+                path: '/myCardList',
+                element: <PrivateRoute><MyArtCard /></PrivateRoute>
             },
             {
-                path:'/addArtCard',
-                element:<PrivateRoute><AddArtCard/></PrivateRoute>
+                path: '/addArtCard',
+                element: <PrivateRoute><AddArtCard /></PrivateRoute>
             },
-           
+
             {
-                path:'/viewDetails/:id',
-                element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/juteCrafts/${params.id}`)
+                path: '/viewDetails/:id',
+                element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/juteCrafts/${params.id}`)
+            },
+            {
+                path: '/updateCard',
+                element: <UpdateCard></UpdateCard>
             },
             {
                 path: '*',
                 element: <NotFound></NotFound>
             }
-                
+
 
         ]
 

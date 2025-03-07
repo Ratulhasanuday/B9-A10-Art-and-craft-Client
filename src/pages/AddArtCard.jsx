@@ -197,13 +197,13 @@ const AddArtCard = () => {
                         </div>
                         <div className="md:mt-6 space-y-6">
                             <div className="flex items-center gap-x-3">
-                                <input id="yes" name="customaization" type="radio" value="yes" checked className=""  />
+                                <input id="yes" name="customaization" type="radio" value="Yes" checked className=""  />
                                 <label htmlFor="yes" className="block text-sm font-medium text-gray-900">Yes</label>
                             </div>
                         </div>
                         <div className="md:mt-6 space-y-6">
                             <div className="flex items-center gap-x-3">
-                                <input id="no" name="customaization" type="radio" value="no" checked className="" />
+                                <input id="no" name="customaization" type="radio" value="No" checked className="" />
                                 <label htmlFor="no" className="block text-sm font-medium text-gray-900">No</label>
                             </div>
                         </div>
