@@ -10,15 +10,17 @@ const PrivateRoute = ({children}) => {
     if(loading){
         return <div className="flex justify-center items-center min-h-screen"><span className="loading loading-infinity loading-lg"></span></div>
     }
-    if(!user){
-        return <NotFound></NotFound>;
-    }
+   
     if (!user) {
            
-        <Navigate state={{from:location.pathname}} replace to="/login">          
+       return <Navigate state={{from:location.pathname}} to="/login" replace >          
         
         </Navigate>
     }
+    if (!children) {
+        return <NotFound></NotFound>
+    }
+
     
     return (
         children

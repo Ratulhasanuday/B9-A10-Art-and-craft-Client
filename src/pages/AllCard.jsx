@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from './Shared/Navbar';
 import Footer from './Shared/Footer';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AllCard = () => {
     const loadedJuteCrafts = useLoaderData();
     const [juteCrafts, setJuteCrafts] = useState(loadedJuteCrafts);
+    const {loading}=useContext(AuthContext)
+    if(loading){
+        return <div className="flex justify-center items-center min-h-screen"><span className="loading loading-infinity loading-lg"></span></div>
+    }
     return (
         <div>
             <Navbar></Navbar>
