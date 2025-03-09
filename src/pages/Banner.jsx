@@ -20,7 +20,7 @@ const Banner = () => {
                     <img className='h-96 w-full' src="https://i.ibb.co.com/9kSwJtfT/Wooden-Furniture-Sculptures1.jpg" alt="" />
                 </SwiperSlide>
                 <SwiperSlide className='text-center'>
-                    <img className='h-96 w-full' src="https://i.ibb.co/ckTYFDC/Lodges-1.jpg" alt="" />
+                    <img className='h-96 w-full' src="https://i.ibb.co.com/DmtG8Zp/mid-century-modern-living-room-interior-design-with-monstera-tree.jpg" alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className='h-96 w-full' src="https://i.ibb.co/0D3qscQ/resorts-1.jpg" alt="" />

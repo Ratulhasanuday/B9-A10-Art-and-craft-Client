@@ -79,7 +79,7 @@ const ViewDetails = () => {
                         </p>
                         <div className='pt-4 '>
                             <button onClick={() => handleDeleteCard(loadedDetails._id)} className='btn mr-4'>Delete</button>
-                            <Link to='/updateCard' className='btn'>Update</Link>
+                            <Link to={`/updateCard/${loadedDetails._id}`} className='btn'>Update</Link>
                         </div>
                     </div>
 

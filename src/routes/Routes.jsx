@@ -49,8 +49,9 @@ const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/juteCrafts/${params.id}`)
             },
             {
-                path: '/updateCard',
-                element: <UpdateCard></UpdateCard>
+                path: '/updateCard/:id',
+                element: <UpdateCard></UpdateCard>,
+                loader: ({ params }) => fetch(`http://localhost:5000/juteCrafts/${params.id}`)
             },
             {
                 path: '*',
