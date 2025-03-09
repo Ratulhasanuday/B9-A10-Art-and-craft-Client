@@ -6,7 +6,7 @@ const Footer = () => {
       const { theme} = useContext(ThemeContext);
     
     return (
-        <footer className={`footer sm:footer-horizontal p-10 ${theme === 'light' ? 'bg-light' : 'bg-dark'}`}>
+        <footer className={`footer footer-horizontal p-10 ${theme === 'light' ? 'bg-light' : 'bg-dark'}`}>
             <nav>
                 <h6 className="footer-title">Services</h6>
                 <a className="link link-hover">Branding</a>

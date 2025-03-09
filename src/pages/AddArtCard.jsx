@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const AddArtCard = () => {
     const handleAddCard=e=>{
@@ -40,7 +41,20 @@ const AddArtCard = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);         
+            if (data.insertedId) {
+                // Reset form
+             
+
+                // Show success alert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Art & Crafts card added successfully',
+                    confirmButtonColor: '#3085d6',
+                 
+                });
+                form.reset();
+            }         
         })
     }
     return (
