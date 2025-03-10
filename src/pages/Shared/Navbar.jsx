@@ -35,7 +35,7 @@ const Navbar = () => {
             {nav}
           </ul>
         </div>
-        <Link className="md:text-2xl ml-4" to="/">Unice Craft</Link>
+        <Link className="md:text-2xl font-bold ml-4" to="/">Unice Craft</Link>
       </div>
       <div className="navbar-end gap-4">
         <div className="navbar-center hidden lg:flex">
