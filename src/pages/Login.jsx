@@ -22,6 +22,7 @@ const Login = () => {
             setType('password');
         }
     };
+    
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
