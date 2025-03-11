@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Navbar from './Shared/Navbar';
-import { data, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Font Awesome icons
@@ -43,7 +43,6 @@ const SignUp = () => {
             .then((result) => {
                 console.log(result.user);
                 toast.success('Registration successfully!');
-                // const createdAt= result.user.matadata.createdAt;
                 const user={email,password,photo,name ,}
                 fetch('http://localhost:5000/users',{
                     method:"POST",
