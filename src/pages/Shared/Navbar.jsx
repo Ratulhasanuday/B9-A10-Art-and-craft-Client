@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       <li className="font-bold"><NavLink to="/">Home</NavLink></li>
       <li className="font-bold"><NavLink to="/allCard">All Card</NavLink></li>
-      <li className="font-bold"><NavLink to="/">About</NavLink></li>
+      <li className="font-bold"><NavLink to="/about">About</NavLink></li>
       {user && (
         <li className="font-bold"><NavLink to="/myCardList">My List</NavLink></li>
       )}
