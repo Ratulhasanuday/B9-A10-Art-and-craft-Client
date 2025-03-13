@@ -10,7 +10,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash />); // Initial icon
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
@@ -19,9 +19,7 @@ const SignUp = () => {
         const name = form.get('name');
         const photo = form.get('photo');
         const password = form.get('password');
-
-        console.log(email, password, name, photo);
-
+        // Password validation
         if (password.length < 6) {
             toast.error('Password must be at least 6 characters long!');
             return;
@@ -39,30 +37,38 @@ const SignUp = () => {
             return;
         }
 
+        // Create the user
         createUser(email, password)
             .then((result) => {
                 console.log(result.user);
-                toast.success('Registration successfully!');
-                const user={email,password,photo,name ,}
-                fetch('http://localhost:5000/users',{
-                    method:"POST",
-                    headers:{
-                        'content-type':'application/json'
+                toast.success('Registration successful!');
+                const user = { email, password, photo, name };
+
+                // Send user data to your server
+                fetch('https://unice-jute-wooden-crafts-server-gniwardfp.vercel.app/users', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        
                     },
-                    body:JSON.stringify(user)
+                    body: JSON.stringify(user),
                 })
-                .then(res=>res.json())
-                .then(data=>{
-                    console.log('user added to database',data);
-                    
+                .then(res => res.json())
+                .then(data => {
+                    console.log('User added to the database', data);
                 })
+                .catch((error) => {
+                    console.error('Error adding user to the database:', error);
+                    toast.error('Error adding user to the database.');
+                });
+
                 setTimeout(() => {
                     navigate('/');
                 }, 3000);
             })
             .catch((error) => {
                 toast.error(error.message);
-            }); 
+            });
     };
 
     const handleToggle = () => {
@@ -74,9 +80,10 @@ const SignUp = () => {
             setType('password');
         }
     };
+
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar />
             <div className="hero min-h-screen">
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form onSubmit={handleRegisterSubmit} className="card-body">
@@ -97,13 +104,13 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="Enter your photo url" className="input input-bordered w-full" required />
+                            <input type="text" name="photo" placeholder="Enter your photo URL" className="input input-bordered w-full" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <div className="mb-4 flex">
+                            <div className="relative">
                                 <input
                                     type={type}
                                     name="password"
@@ -113,7 +120,7 @@ const SignUp = () => {
                                     autoComplete="current-password"
                                     className="input w-full input-bordered"
                                 />
-                                <span className="absolute right-8 p-2 text-xl cursor-pointer" onClick={handleToggle}>
+                                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 text-xl cursor-pointer" onClick={handleToggle}>
                                     {icon}
                                 </span>
                             </div>

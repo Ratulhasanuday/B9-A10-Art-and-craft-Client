@@ -25,12 +25,12 @@ const ViewDetails = () => {
             if (result.isConfirmed) {
                 console.log('delete confarm',result);
                 
-                fetch(`http://localhost:5000/juteCrafts/${_id}`,{
+                fetch(`https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts/${_id}`,{
                     method:'DELETE',
+                    
                 })
                 .then(res=>res.json())
                 .then(data=>{
-                    console.log(data);
                     if(data.deletedCount > 0){
                         Swal.fire({
                             title: "Deleted!",
@@ -53,7 +53,7 @@ const ViewDetails = () => {
             <div className="p-10 ">
                 <div className='md:flex justify-center rounded-2xl md:h-96 shadow-xl  '>
 
-                    <img className='md:w-1/2 w-full h-52   md:rounded-l-2xl rounded-t-2xl' src={loadedDetails.photo} alt="" />
+                    <img className='md:w-1/2 w-full h-52   md:rounded-l-2xl rounded-t-2xl' src={loadedDetails.photo} alt="view" />
                     <div className='p-5'>
                         <h1 className='md:text-3xl text-2xl font-bold'>
                             Product Name :  {loadedDetails.name}</h1>

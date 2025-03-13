@@ -35,9 +35,9 @@ const UpdateCard = () => {
             customaization,
             stockStatus,
         };
-        console.log(updateCard);
-        fetch(`http://localhost:5000/juteCrafts/${_id}`,{
+        fetch(`https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts/${_id}`,{
             method:'PUT',
+            
             headers:{
                 'content-type':'application/json'
             },
@@ -45,7 +45,6 @@ const UpdateCard = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data); console.log(data);
                         if (data.modifiedCount) {
                             Swal.fire({
                                 title: 'Success!',

@@ -42,7 +42,7 @@ const Home = () => {
                         loadedJuteCrafts.slice(0, visibleItems).map((juteCraft) => (
                             <div key={juteCraft._id} className='flex justify-center'>
                                 <div className='w-full h-96 rounded-xl shadow-xl'>
-                                    <img className='w-full h-3/5 rounded-t-2xl' src={juteCraft.photo} alt="" />
+                                    <img className='w-full h-3/5 rounded-t-2xl' src={juteCraft.photo} alt="home" />
                                     <div className='px-5 '>
                                         <h1 className='md:text-2xl text-xl pt-4 font-bold'>{juteCraft.name}</h1>
                                         <div className='flex justify-between'>

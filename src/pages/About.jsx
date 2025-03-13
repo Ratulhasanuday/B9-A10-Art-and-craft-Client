@@ -19,22 +19,22 @@ const About = () => {
                              <h2 className="text-3xl font-bold text-center  underline">Our Management</h2>
                              <div className="grid md:grid-cols-4 grid-cols-1 gap-4 mt-6">
                                  <div>
-                                     <img src={'https://i.ibb.co.com/60fjSsnk/new-team-01.jpg'} alt="" />
+                                     <img src={'https://i.ibb.co.com/60fjSsnk/new-team-01.jpg'} alt="Placeholder" />
                                      <h1 className="text-2xl font-bold pt-8 pl-5">Marcus</h1>
                                      <h2 className="text-xl font-medium pl-5">CEO</h2>
                                  </div>
                                  <div>
-                                     <img src={'https://i.ibb.co.com/Gv576ZKL/new-team-02.jpg'} alt="" />
+                                     <img src={'https://i.ibb.co.com/Gv576ZKL/new-team-02.jpg'} alt="Placeholder" />
                                      <h1 className="text-2xl font-bold pt-8 pl-5">Olivia</h1>
                                      <h2 className="text-xl font-medium pl-5">Managing Director</h2>
                                  </div>
                                  <div>
-                                     <img src={'https://i.ibb.co.com/b5m4ccxh/new-team-03.jpg'} alt="" />
+                                     <img src={'https://i.ibb.co.com/b5m4ccxh/new-team-03.jpg'} alt="Placeholder" />
                                      <h1 className="text-2xl font-bold pt-8 pl-5">Adrian Leo</h1>
                                      <h2 className="text-xl font-medium pl-5">Deputy Managing Director</h2>
                                  </div>
                                  <div>
-                                     <img src={'https://i.ibb.co.com/b5m4ccxh/new-team-03.jpg'} alt="" />
+                                     <img src={'https://i.ibb.co.com/b5m4ccxh/new-team-03.jpg'} alt="Placeholder" />
                                      <h1 className="text-2xl font-bold pt-8 pl-5">Sebastian Nathaniel</h1>
                                      <h2 className="text-xl font-medium pl-5">Senior Manager</h2>
                                  </div>
@@ -48,7 +48,7 @@ const About = () => {
                                  </div>
                                  <div >
                                      <p className="md:text-xl font-bold text-center"><IoMailOpenOutline className="text-9xl mx-auto " />Email Address : <br />
-                                     unice.helpdesk@gmail.com</p>
+                                     restae.helpdesk@gmail.com</p>
                                  </div>
                              </div>
                          </div>

@@ -31,9 +31,9 @@ const AddArtCard = () => {
             customaization,
             stockStatus,
         };
-        console.log(artCraftCard);
-        fetch('http://localhost:5000/juteCrafts', {
+        fetch('https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts', {
             method:'POST',
+            
             headers:{
                 'content-type':'application/json'
             },

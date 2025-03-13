@@ -19,12 +19,12 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/juteCrafts')
+                loader: () => fetch('https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts')
             },
             {
                 path: '/allCard',
                 element: <AllCard></AllCard>,
-                loader: () => fetch('http://localhost:5000/juteCrafts')
+                loader: () => fetch('https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts')
 
             },
             {
@@ -38,7 +38,7 @@ const routes = createBrowserRouter([
             {
                 path: '/myCardList',
                 element: <PrivateRoute><MyArtCard /></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/juteCrafts')
+                loader: () => fetch('https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts')
 
             },
             {
@@ -49,12 +49,12 @@ const routes = createBrowserRouter([
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/juteCrafts/${params.id}`)
+                loader: ({ params }) => fetch(`https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts/${params.id}`)
             },
             {
                 path: '/updateCard/:id',
                 element: <UpdateCard></UpdateCard>,
-                loader: ({ params }) => fetch(`http://localhost:5000/juteCrafts/${params.id}`)
+                loader: ({ params }) => fetch(`https://unice-jute-wooden-crafts-server.vercel.app/juteCrafts/${params.id}`)
             },
             {
                 path:'/about',

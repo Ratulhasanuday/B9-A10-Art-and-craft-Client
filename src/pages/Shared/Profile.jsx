@@ -17,9 +17,10 @@ const Profile = () => {
     };
     useEffect(()=>{
         if(user?.email){
-            fetch(`http://localhost:5000/users/${user.email}`)
+            fetch(`https://unice-jute-wooden-crafts-server.vercel.app/users/${user.email}`)
             .then(res=>res.json())
             .then(data=>{
+                
                 setUserData(data)
             })
         }

@@ -28,7 +28,7 @@ const MyArtCard = () => {
                         user?.email === juteCraft.email && (
                             <div key={juteCraft._id} className='flex justify-center'>
                                 <div className='w-full h-96 rounded-xl shadow-xl'>
-                                    <img className='w-full h-3/5 rounded-t-2xl' src={juteCraft.photo} alt="" />
+                                    <img className='w-full h-3/5 rounded-t-2xl' src={juteCraft.photo} alt="myCard" />
                                     <div className='px-5 '>
                                         <h1 className='text-2xl pt-4 font-bold'>{juteCraft.name}</h1>
                                         <div className='flex justify-between'>
